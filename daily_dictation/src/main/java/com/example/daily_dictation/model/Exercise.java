@@ -19,7 +19,6 @@ public class Exercise {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String title;
-    String audioUrl;
     LocalDateTime createAt;
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
@@ -28,4 +27,6 @@ public class Exercise {
     Transcript transcript;
     @OneToMany(mappedBy = "exercise",cascade = CascadeType.ALL)
     Set<UserExercise> userExercises;
+    @OneToMany(mappedBy = "exercise",cascade = CascadeType.ALL)
+    Set<AudioUrl> audioUrls;
 }
